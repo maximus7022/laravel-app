@@ -1,0 +1,60 @@
+pipeline{
+    environment{
+        registry = "798653922524.dkr.ecr.eu-north-1.amazonaws.com/laravel-app-ecr-repo"
+    }
+    agent any
+    stages{
+        stage("Retrieving RDS credentials for container"){
+            steps{
+                echo "Writing DB secrets to env..."
+                sh 'echo "DB_HOST=$(aws secretsmanager get-secret-value --secret-id rds-host-2 --query SecretString --output text)" >> .env.example'
+                sh 'echo "DB_DATABASE=$(aws secretsmanager get-secret-value --secret-id rds-database-2 --query SecretString --output text)" >> .env.example'
+                sh 'echo "DB_USERNAME=$(aws secretsmanager get-secret-value --secret-id rds-username-2 --query SecretString --output text)" >> .env.example'
+                sh 'echo "DB_PASSWORD=$(aws secretsmanager get-secret-value --secret-id rds-password-2 --query SecretString --output text)" >> .env.example'
+                echo "--------------------------OK--------------------------"
+            }
+        }
+        stage("Building image"){
+            steps{
+                echo "Building app image..."
+                sh "docker build -t ${registry} ."
+                echo "--------------------------OK--------------------------"
+            }
+        }
+        stage("ECR Authentication"){
+            steps{
+                echo "Logging to ECR..."
+                sh "aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 798653922524.dkr.ecr.eu-north-1.amazonaws.com"
+                echo "--------------------------OK--------------------------"
+            }
+        }
+        stage("Pushing to ECR"){
+            steps{
+                echo "Pushing to ECR..."
+                sh "docker push ${registry}"
+                sh "docker tag ${registry} ${registry}:v.${BUILD_NUMBER}"
+                sh "docker push ${registry}:v.${BUILD_NUMBER}"
+                echo "--------------------------OK--------------------------"
+            }
+        }
+        stage("Cleaning build environment"){
+            steps{
+                echo "Removing unused images..."
+                sh "docker system prune -a --volumes -f"
+                echo "--------------------------OK--------------------------"
+            }
+        }
+        stage("Deployment to ECS"){
+            steps{
+                echo "Updating ECS service with new image version..."
+                withCredentials([
+                    string(credentialsId: 'ecs_cluster_name', variable: 'CLUSTER_NAME'),
+                    string(credentialsId: 'ecs_service_name', variable: 'SERVICE_NAME')
+                ]){
+                    sh "aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment"
+                }
+                echo "--------------------------OK--------------------------"
+            }
+        }
+    }
+}
