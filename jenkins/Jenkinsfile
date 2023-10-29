@@ -44,5 +44,13 @@ pipeline{
                 echo "--------------------------OK--------------------------"
             }
         }
+        stage("Deployment to EKS"){
+            steps{
+                echo "Updating EKS deployment with new image version..."
+                sh "aws eks update-kubeconfig --name demo-cluster"
+                sh "kubectl rollout restart deployment laravel-deployment"
+                echo "--------------------------OK--------------------------"
+            }
+        }
     }
 }
