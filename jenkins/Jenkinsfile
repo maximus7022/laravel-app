@@ -4,6 +4,16 @@ pipeline{
     }
     agent any
     stages{
+        stage("Retrieving RDS credentials for container"){
+            steps{
+                echo "Writing DB secrets to env..."
+                sh 'echo "DB_HOST=$(aws ssm get-parameter --name "rds-host" --query Parameter.Value --output text)" >> .env.example'
+                sh 'echo "DB_DATABASE=$(aws ssm get-parameter --name "rds-database" --query Parameter.Value --output text)" >> .env.example'
+                sh 'echo "DB_USERNAME=$(aws ssm get-parameter --name "rds-username" --query Parameter.Value --output text)" >> .env.example'
+                sh 'echo "DB_PASSWORD=$(aws ssm get-parameter --name "rds-password" --with-decryption --query Parameter.Value --output text)" >> .env.example'
+                echo "--------------------------OK--------------------------"
+            }
+        }
         stage("Building image"){
             steps{
                 echo "Building app image..."
