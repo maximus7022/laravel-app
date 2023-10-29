@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/calc.css')}}">
-    <title>Calculator</title>
+<!DOCTYPE html> <html lang="en"> <head>
+<meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{asset('css/calc.css')}}">
+<title>Calculator 2.0</title>
 </head>
+
 <body>
     <section>
         <input type="text" id="screen">
@@ -16,25 +14,25 @@
                 <td><button>)</button></td>
                 <td><button>c</button></td>
                 <td><button>%</button></td>
-            </tr> 
+            </tr>
             <tr>
                 <td><button>7</button></td>
                 <td><button>8</button></td>
                 <td><button>9</button></td>
                 <td><button>*</button></td>
-            </tr> 
+            </tr>
             <tr>
                 <td><button>4</button></td>
                 <td><button>5</button></td>
                 <td><button>6</button></td>
                 <td><button>-</button></td>
-            </tr> 
+            </tr>
             <tr>
                 <td><button>1</button></td>
                 <td><button>2</button></td>
                 <td><button>3</button></td>
                 <td><button>+</button></td>
-            </tr> 
+            </tr>
             <tr>
                 <td><button>0</button></td>
                 <td><button>.</button></td>
@@ -54,4 +52,5 @@
     </footer>
     <script src="{{asset('js/calc.js')}}"></script>
 </body>
+
 </html>
