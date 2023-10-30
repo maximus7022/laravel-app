@@ -1,19 +1,17 @@
 <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="icon"
     href="{{asset('images/blackhole.png')}}" type="image/x-icon">
-<link rel="stylesheet" href="{{asset('../css/home.css')}}"> <title>Home page</title> </head> <body>
-<section class="showcase"> <header> <h2 class="logo">Maxim Pashynskyi's</h2> <div class="toggle"> </div>
-    </header> <video src="{{asset('video/bg.mp4')}}" muted loop autoplay></video> <div class="overlay">
-    </div>
-    <div class="text">
-        <h2>Soft Serve IT Academy</h2>
-        <h3>Second Demo Project</h3>
-        <p>Here, I've combined several simple web applications
-            into one Laravel project and automated the process of building
-            and deploying it using Jenkins and Docker. Also I created AWS infrastructure with Terraform and deployed
-            this application to K8s cluster</p>
-        <a class="expl" href="#">Explore projects</a>
-    </div>
+<link rel="stylesheet" href="{{asset('../css/home.css')}}"> <title>Home page</title> </head> <body> <section
+    class="showcase"> <header> <h2 class="logo">Maxim Pashynskyi's</h2> <div class="toggle"> </div> </header> <video
+    src="{{asset('video/bg.mp4')}}" muted loop autoplay></video>
+<div class="overlay">
+    </div> <div class="text"> <h2>Soft Serve IT Academy</h2>
+    <h3>Second Demo Project</h3>
+    <p>Here, I've combined several simple web applications
+    into one Laravel project and automated the process of building
+    and deploying it using Jenkins and Docker. Also I created AWS infrastructure with Terraform</p>
+    <a class="expl" href="#">Explore projects</a>
+</div>
 </section>
 <div class="menu">
     <ul>
