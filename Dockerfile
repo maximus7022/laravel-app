@@ -7,7 +7,7 @@ COPY . .
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# updating and installing composer
+# updating and installing composer with dependencies
 RUN apk update && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     composer install -o

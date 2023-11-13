@@ -4,13 +4,11 @@
 <link rel="stylesheet" href="{{asset('../css/home.css')}}"> <title>Home page</title> </head> <body> <section
     class="showcase"> <header> <h2 class="logo">Maxim Pashynskyi's</h2> <div class="toggle"> </div> </header> <video
     src="{{asset('video/bg.mp4')}}" muted loop autoplay></video>
-<div class="overlay">
-    </div> <div class="text"> <h2>Soft Serve IT Academy</h2>
-    <h3>Second Demo Project</h3>
-    <p>Here, I've combined several simple web applications
-    into one Laravel project and automated the process of building
-    and deploying it using Jenkins and Docker. Also I created AWS infrastructure with Terraform</p>
-    <a class="expl" href="#">Explore projects</a>
+<div class="overlay"> </div> <div class="text"> <h2>Soft Serve IT Academy</h2> <h3>Final Demo Project</h3>
+    <p>Here, I've combined several simple web applications into one Laravel project and automated the process of
+        building and deploying it using Jenkins and Docker. Also I created AWS infrastructure with Terraform, managed to
+        deploy this application to K8s cluster and configured basic monitoring with Prometheus and Grafana</p>
+        <a class="expl" href="#">Explore projects</a>
 </div>
 </section>
 <div class="menu">
