@@ -4,23 +4,22 @@
 <link rel="stylesheet" href="{{asset('../css/home.css')}}"> <title>Home page</title> </head> <body> <section
     class="showcase"> <header> <h2 class="logo">Maxim Pashynskyi's</h2> <div class="toggle"> </div> </header> <video
     src="{{asset('video/bg.mp4')}}" muted loop autoplay></video>
-<div class="overlay"> </div> <div class="text"> <h2>Soft Serve IT Academy</h2> <h3>Final Demo Project</h3>
-    <p>Here, I've combined several simple web applications into one Laravel project and automated the process of
-        building and deploying it using Jenkins and Docker. Also I created AWS infrastructure with Terraform, managed to
-        deploy this application to K8s cluster and configured basic monitoring with Prometheus and Grafana</p>
-        <a class="expl" href="#">Explore projects</a>
-</div>
-</section>
-<div class="menu">
-    <ul>
-        <li><a href="/students">SQL CRUID App</a></li>
-        <li><a href="/drum">Drum Kit</a></li>
-        <li><a href="/dicee">Dicee Game</a></li>
-        <li><a href="/colors">Color Generator</a></li>
-        <li><a href="/calc">Simple Calc</a></li>
-    </ul>
-</div>
-<script src="{{asset('js/home.js')}}"></script>
-</body>
+<div class="overlay"> </div> <div class="text"> <h2>Soft Serve IT Academy</h2> <h3>Final Demo Project</h3> <p>Here, I've
+    combined several simple web applications into one Laravel project and automated the process of building and
+    deploying it using Jenkins and Docker. Also I created AWS infrastructure with Terraform, managed to deploy this
+    application to K8s cluster and configured basic monitoring with Prometheus and Grafana.</p> <a class="expl"
+    href="#">Explore projects</a> </div>
+    </section>
+    <div class="menu">
+        <ul>
+            <li><a href="/students">SQL CRUID App</a></li>
+            <li><a href="/drum">Drum Kit</a></li>
+            <li><a href="/dicee">Dicee Game</a></li>
+            <li><a href="/colors">Color Generator</a></li>
+            <li><a href="/calc">Simple Calc</a></li>
+        </ul>
+    </div>
+    <script src="{{asset('js/home.js')}}"></script>
+    </body>
 
-</html>
+    </html>
